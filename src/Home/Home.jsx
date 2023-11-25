@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 export default function Home() {
    
     return (
         <div>
             <h2>EXPOSIÇÃO DE ARTES</h2>
-            <p class="paragrafo">REGISTRE AQUI OS SEUS ARTISTAS FAVORITOS:</p><Link to="/todo">todo</Link>
+            <p class="paragrafo">REGISTRE AQUI OS SEUS VÍDEOS FAVORITOS:</p><Link to="/todo">todo</Link>
             <div>
            <img class="container2" src="https://www.nucleodoconhecimento.com.br/wp-content/uploads/2019/06/arte-nouveau.jpg"/>
          </div>
@@ -36,6 +37,14 @@ E tal reflexo existe tendo como base os valores estéticos da beleza e da harmon
 <figure>
         <img class="card-img-top" src="https://i.pinimg.com/564x/b0/2a/d5/b02ad52919267e6bcd3efc37666307bb.jpg"/>
          </figure>
+
+<iframe>
+  width="853"
+  height="480"
+  src={'https://www.youtube.com/embed/' video.url.slice(17)}
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media"
+</iframe>
 
        <h3>AS DIVERSAS FORMAS DE EXPRESSÃO</h3>  
        <p>Na verdade, a arte transforma a forma de imaginar e de entender o mundo. É uma forma de um indivíduo expressar as suas emoções, história e cultura por meio de valores estéticos, como beleza, harmonia e equilíbrio. Por meio da história da arte, é possível conhecer um pouco mais sobre o ser humano através da evolução das suas diversas expressões, ou conhecer a história e as tradições de um país através de suas manifestações culturais.</p> 
