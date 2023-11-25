@@ -1,0 +1,153 @@
+body{
+    text-align: left;
+    background-color: rgb(181, 167, 194);
+    color: rgb(78, 58, 96);
+}
+
+h3{
+    text-align: center; 
+    color: rgb(78, 58, 96);
+}
+
+.artistas{
+  text-align: left; 
+    color: rgb(254, 254, 254);
+}
+
+form{
+    text-align: left;
+    display: inline-block;
+}
+
+p{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 12px;
+}
+
+.card-img-top{max-width: 300px;}
+.card-img-top {
+    width: 250px;
+    height: 320px;
+    margin: auto;
+    display: block;
+    border-radius:  7%;
+  }
+
+h4{
+    text-align: left;
+    color: rgb(78, 58, 96);
+  }
+.form{
+    text-align: right;
+  }
+
+h2{
+    text-align: center;
+    color: rgb(78, 58, 96);
+    background-color: rgb(218, 218, 255);
+  }
+.nome{
+      list-style-type: none;
+      text-align: center;
+  }
+
+.container2 img { max-width: 1000;}
+.container2 {
+  width: 751px;
+  height: 400;
+  display: flex;
+  vertical-align: top;
+  margin-top: 25px;
+  position: absolute;
+}
+
+.imagem1 img { max-width: 200px;}
+.imagem1 {
+  width: 70px;
+  height: 50px;
+  display: flex;
+  vertical-align: top;
+  margin-top: 50px;
+  position: absolute;
+}
+
+button{
+  background-color:rgb(98, 45, 136);
+  color: rgb(211, 186, 233);
+}
+
+.home{
+  text-align: center;
+}
+.row img { max-width: 200px;}
+.row {
+  display: inline-grid;
+	width: 69%;
+  text-align: left;
+}
+
+.noite{
+  padding: 5px;
+}
+
+.impressao{
+  padding: 0px;
+  margin-right: 20vw;
+}
+.testedoteste{
+  height: 100%;
+}
+
+.box {
+  display: inline-block;
+	width: 69%;
+  text-align: left;
+  padding: 47px;
+}
+
+.box {
+  display: inline-block;
+	width: 69%;
+  text-align: left;
+  padding: 47px;
+}
+
+.teste1 {
+  padding: 10px;
+ text-align: center;
+}
+
+div.box {
+	width: 150px;
+	display: inline-block;
+}
+
+.paragrafo{
+  text-align: left;
+}
+
+.coluna2{
+  text-align: left;
+}
+
+h1{
+  color: white;
+  text-align: center;
+}
+
+.form {
+	display: inline-block;
+}
+
+span{
+  font-size: 13px;
+}
+
+.paragradoH{
+ color: black;
+}
+
+.ativ{
+  text-align: left;
+}
