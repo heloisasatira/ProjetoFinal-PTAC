@@ -4,12 +4,7 @@ import  Card  from "../Componentes/Card";
 
 export default function Home() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("lista")) || [];
-    /*     const video ( id ) => {
-           if ( id == id){
-            return listaVideo;
-            }
-        } */
-
+    
     return (
         <div>
             <div class="navbar">
