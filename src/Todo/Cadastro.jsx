@@ -6,6 +6,9 @@ export default function Cadastro() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("lista"))|| [];
     const [id, setId] = useState(listaLocalStorage [listaLocalStorage.length - 1]?.id + 1 || 1);//"estado" para contar os ids
 
+    const listaLocalStorageL = JSON.parse(localStorage.getItem("listaLetra"))|| [];
+    const [idL, setIdL] = useState(listaLocalStorageL [listaLocalStorageL.length - 1]?.id + 1 || 1);
+
     const [idUsuario, setIdUsuario] = useState(1);
     const [listaUsuario, setListaUsuario] = useState([]);//definir que listaUsuario será um array
     const [nome, setNome] = useState("");//definir que nome será um array
@@ -14,7 +17,13 @@ export default function Cadastro() {
     const [listaVideo, setListaVideo] = useState([]);
     const [url, setURL] = useState("");
 
+    const [idLetra, setIdLetra] = useState(1);
+    const [listaLetra, setlistaLetra] = useState([]);
+    const [letra, setLetra] = useState("");
+
     useEffect(()=>{localStorage.setItem("lista", JSON.stringify(listaUsuario))},[listaUsuario]);
+    useEffect(()=>{localStorage.setItem("listaLetra", JSON.stringify(listaLetra))},[listaLetra]);
+    
     useEffect(()=>{localStorage.setItem("lista", JSON.stringify(listaVideo))},[listaVideo]);
 
     const salvarN = (e) => {//para coletar o nome do usuário
@@ -38,6 +47,18 @@ export default function Cadastro() {
         setURL("");
         console.log(listaVideo);
     };
+
+    const salvarLetra = (e) => {
+        e.preventDefault();
+        setlistaLetra([...listaLetra, {
+            letra: letra,
+            idL: idLetra
+        }]);
+        setIdLetra(idL + 1);
+        setLetra("");
+        console.log(listaLetra);
+    };
+
 
     return (
         <div class="container">
@@ -67,6 +88,13 @@ Veja mais sobre "Gênero dramático" em: https://brasilescola.uol.com.br/literat
                     value={nome}
                     onChange={(e) => { setNome(e.target.value) }} />
                 <button>nome de usuário</button>
+            </form>
+
+            <form class="form" onSubmit={salvarLetra}>
+                <input type="text"
+                    value={letra}
+                    onChange={(e) => { setLetra(e.target.value) }} />
+                <button>Letra da sua música</button>
             </form>
 
             <form class="form" onSubmit={salvarURL}>
