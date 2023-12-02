@@ -4,7 +4,7 @@ import  Card  from "../Componentes/Card";
 
 export default function Home() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("lista")) || [];
-    
+
     return (
         <div>
             <div class="navbar">
