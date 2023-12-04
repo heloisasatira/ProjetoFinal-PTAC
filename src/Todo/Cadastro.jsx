@@ -9,6 +9,9 @@ export default function Cadastro() {
     const listaLocalStorageL = JSON.parse(localStorage.getItem("listaLetra"))|| [];
     const [idL, setIdL] = useState(listaLocalStorageL [listaLocalStorageL.length - 1]?.id + 1 || 1);
 
+    const listaLocalStorageA = JSON.parse(localStorage.getItem("listaAutor"))|| [];
+    const [idA, setIdA] = useState(listaLocalStorageA [listaLocalStorageA.length - 1]?.id + 1 || 1);
+
     const [idUsuario, setIdUsuario] = useState(1);
     const [listaUsuario, setListaUsuario] = useState([]);//definir que listaUsuario será um array
     const [nome, setNome] = useState("");//definir que nome será um array
@@ -21,8 +24,13 @@ export default function Cadastro() {
     const [listaLetra, setlistaLetra] = useState([]);
     const [letra, setLetra] = useState("");
 
+    const [idAutor, setIdAutor] = useState(1);
+    const [listaAutor, setlistaAutor] = useState([]);
+    const [autor, setAutor] = useState("");
+
     useEffect(()=>{localStorage.setItem("lista", JSON.stringify(listaUsuario))},[listaUsuario]);
     useEffect(()=>{localStorage.setItem("listaLetra", JSON.stringify(listaLetra))},[listaLetra]);
+    useEffect(()=>{localStorage.setItem("listaAutor", JSON.stringify(listaAutor))},[listaAutor]);
     
     useEffect(()=>{localStorage.setItem("lista", JSON.stringify(listaVideo))},[listaVideo]);
 
@@ -59,50 +67,56 @@ export default function Cadastro() {
         console.log(listaLetra);
     };
 
+    const salvarAutor = (e) => {
+        e.preventDefault();
+        setlistaAutor([...listaAutor, {
+            autor: autor,
+            idA: idAutor
+        }]);
+        setIdAutor(idA + 1);
+        setAutor("");
+        console.log(listaAutor);
+    };
 
     return (
         <div class="container">
             <Link to="/">home</Link>
             <h1>O DRAMA, O TEATRO E A ATUAÇÃO</h1>
-            <p>"Drama, que em grego significa “ação”, é um gênero literário surgido na Grécia Antiga como, originalmente, uma forma de louvação religiosa ao deus Dionísio (Baco). Compõem o gênero dramático os textos em prosa ou em verso feitos para serem encenados no palco."
-Veja mais sobre "Gênero dramático" em: https://brasilescola.uol.com.br/literatura/genero-dramatico.htm</p>
-
-            <div class="box">
-                    <div class="row"> <img src="https://i.pinimg.com/564x/39/c5/ef/39c5efbf8b5a81c880572a9671468070.jpg"/>
-                      <span>Noite Estrelada, Van Gogh</span>
-                    </div>
-                </div>     
-                <div class="box">
-                    <div class="row"> <img src="https://norfipc.com/fotos/arte/Vincent-van-Gogh-Wheat-Field-with-Cypresses-1889.jpg"/>
-                    <span>Campo de Trigo com ciprestes, Van Gogh</span></div> 
-                </div>
-                <div class="box">
-                    <div class="row"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTJiW5pU69MVRTmyMqwQzLzxIYt3Kzyhk0OA&usqp=CAU"/>
-                    <span> O Quarto, Van Gogh</span></div> 
-                </div>
-
-
+        
+        <div>
             <h4>Nome da música</h4>
             <form class="form" onSubmit={salvarN}>
                 <input type="text"
                     value={nome}
                     onChange={(e) => { setNome(e.target.value) }} />
-                <button>nome de usuário</button>
+                <button>Nome da música:</button>
             </form>
-
+            <br></br>
+            <h4>Letra da música</h4>
             <form class="form" onSubmit={salvarLetra}>
                 <input type="text"
                     value={letra}
                     onChange={(e) => { setLetra(e.target.value) }} />
-                <button>Letra da sua música</button>
+                <button>Letra da música:</button>
             </form>
+            <br></br>
+            <h4>Artista:</h4>
+            <form class="form" onSubmit={salvarAutor}>
+                <input type="text"
+                    value={autor}
+                    onChange={(e) => { setAutor(e.target.value) }} />
+                <button>Autor</button>
+            </form>
+            <br></br>
 
+            <h4>URL:</h4>
             <form class="form" onSubmit={salvarURL}>
                 <input type="text"
                     value={url}
                     onChange={(e) => { setURL(e.target.value) }} />
                 <button>URL</button>
             </form>
+            </div>
         </div>
     );
 }
