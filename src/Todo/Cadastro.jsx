@@ -2,6 +2,15 @@ import { useState, useEffect } from "react";// useState permite a criação de e
 import { Link } from "react-router-dom";
 import "./style.css";
 
+const Registrar = () => {
+    const [video, setVideo] = useState({
+      nome: '',
+      url: '',
+      autor: '',
+      letra: '',
+    });
+}
+
 export default function Cadastro() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("lista"))|| [];
     const [id, setId] = useState(listaLocalStorage [listaLocalStorage.length - 1]?.id + 1 || 1);//"estado" para contar os ids
