@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";// useState permite a criação de estado no componente através de função e faz o gerenciamento do estado do componente e retorna um array
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const Registrar = () => {
@@ -42,6 +42,20 @@ export default function Cadastro() {
     useEffect(()=>{localStorage.setItem("listaAutor", JSON.stringify(listaAutor))},[listaAutor]);
     
     useEffect(()=>{localStorage.setItem("lista", JSON.stringify(listaVideo))},[listaVideo]);
+
+    const navigate =  useNavigate();
+
+    const salvar = async (e) => {
+       e.preventDefault();
+       await setListaUsuario([...lista, {
+        id: id,
+        nome: nome, 
+        letra: letra,
+        url: url
+       }]);
+       setId(id + 1);
+       navigate("/");
+    }
 
     const salvarN = (e) => {//para coletar o nome do usuário
         e.preventDefault();//previnir a ação de enviar o formulário; preventDefault serve para prevenir o comportamento padrão de um evento; evitar que a página seja redirecionada automaticamente
@@ -124,6 +138,16 @@ export default function Cadastro() {
                     value={url}
                     onChange={(e) => { setURL(e.target.value) }} />
                 <button>URL</button>
+                <br></br>
+                <br></br>
+                
+                <form class="registrar" onSubmit={salvar}>
+                <input type="text"
+                    value={id}
+                    onChange={(e) => { setId(e.target.value) }} />
+                <button>Registar</button>
+            </form>
+            <br></br>
             </form>
             </div>
         </div>
