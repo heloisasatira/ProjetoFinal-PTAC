@@ -45,17 +45,29 @@ export default function Cadastro() {
 
     const navigate =  useNavigate();
 
+    const [cadastro, setCadastro] = useState(false);
+  
+    const salvar = (e) => {
+      e.preventDefault();
+      const videos = JSON.parse(localStorage.getItem('videos')) || [];
+      videos.push(video);
+      localStorage.setItem('videos', JSON.stringify(videos));
+      setCadastro(true);
+      navigate('/');
+    };
+/* 
     const salvar = async (e) => {
        e.preventDefault();
-       await setListaUsuario([...lista, {
+       await setLista([...lista, {
         id: id,
         nome: nome, 
         letra: letra,
-        url: url
+        url: url,
+        autor: autor
        }]);
        setId(id + 1);
        navigate("/");
-    }
+    } */
 
     const salvarN = (e) => {//para coletar o nome do usuário
         e.preventDefault();//previnir a ação de enviar o formulário; preventDefault serve para prevenir o comportamento padrão de um evento; evitar que a página seja redirecionada automaticamente
@@ -108,10 +120,10 @@ export default function Cadastro() {
         
         <div>
             <h4>Nome da música</h4>
-            <form class="form" onSubmit={salvarN}>
+            <form class="form" onSubmit={salvar}>
                 <input type="text"
                     value={nome}
-                    onChange={(e) => { setNome(e.target.value) }} />
+                    onChange={(e) => { setCadasro(e.target.value) }} />
                 <button>Nome da música:</button>
             </form>
             <br></br>
@@ -122,8 +134,10 @@ export default function Cadastro() {
                     onChange={(e) => { setLetra(e.target.value) }} />
                 <button>Letra da música:</button>
             </form>
+           
             <br></br>
             <h4>Artista:</h4>
+           
             <form class="form" onSubmit={salvarAutor}>
                 <input type="text"
                     value={autor}
@@ -131,13 +145,26 @@ export default function Cadastro() {
                 <button>Autor</button>
             </form>
             <br></br>
+            
+            <div className="form-group">
+              <label htmlFor="url">URL do Vídeo:</label>
+              <input
+                type="url"
+                id="url"
+                name="url"
+                value={video.url}
+                onChange={(e) => setVideo({ ...video, url: e.target.value })}
+              />
+            </div>
 
+{/* 
             <h4>URL:</h4>
             <form class="form" onSubmit={salvarURL}>
                 <input type="text"
                     value={url}
                     onChange={(e) => { setURL(e.target.value) }} />
-                <button>URL</button>
+                <button>URL:</button> */}
+
                 <br></br>
                 <br></br>
                 
@@ -147,9 +174,11 @@ export default function Cadastro() {
                     onChange={(e) => { setId(e.target.value) }} />
                 <button>Registar</button>
             </form>
+
             <br></br>
-            </form>
+
+               </form>
+              
             </div>
-        </div>
     );
 }
